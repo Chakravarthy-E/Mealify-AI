@@ -2,18 +2,8 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { PREFERENCES } from "@/constants/preferences";
 import React, { useState } from "react";
-
-const PREFERENCES = [
-  "Vegetarian",
-  "Vegan",
-  "Gluten-Free",
-  "Dairy-Free",
-  "Low-Carb",
-  "Keto",
-  "Paleo",
-  "Spicy",
-];
 
 function PreferencesSelector({
   onPreferencesChange,
@@ -32,18 +22,25 @@ function PreferencesSelector({
   return (
     <div className="space-y-2">
       <h3 className="font-semibold">Dietary Preferences</h3>
-      {PREFERENCES.map((preference) => (
-        <div key={preference} className="flex space-x-3">
-          <Checkbox
-            id={preference}
-            checked={selectedPreferences.includes(preference)}
-            onCheckedChange={(checked) =>
-              handlePreferenceChange(preference, !!checked)
-            }
-          />
-          <Label htmlFor={preference}>{preference}</Label>
-        </div>
-      ))}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {PREFERENCES.map((preference) => (
+          <div key={preference} className="flex space-x-3">
+            <Checkbox
+              id={preference}
+              checked={selectedPreferences.includes(preference)}
+              onCheckedChange={(checked) =>
+                handlePreferenceChange(preference, !!checked)
+              }
+            />
+            <Label
+              htmlFor={preference}
+              className="cursor-pointer hover:text-muted-foreground hover:underline"
+            >
+              {preference}
+            </Label>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

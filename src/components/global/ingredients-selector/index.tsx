@@ -3,29 +3,7 @@
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-
-const INGREDIENTS = [
-  "Chicken",
-  "Beef",
-  "Fish",
-  "Eggs",
-  "Milk",
-  "Cheese",
-  "Tomatoes",
-  "Onions",
-  "Garlic",
-  "Potatoes",
-  "Rice",
-  "Pasta",
-  "Spinach",
-  "Carrots",
-  "Broccoli",
-  "Bell Peppers",
-  "Olive Oil",
-  "Butter",
-  "Flour",
-  "Sugar",
-];
+import { INGREDIENTS } from "@/constants/ingredients";
 
 export default function IngredientsSelector({
   onIngredientsChange,
@@ -45,7 +23,7 @@ export default function IngredientsSelector({
   return (
     <div className="space-y-4">
       <h3 className="font-semibold">Select Ingredients</h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {INGREDIENTS.map((ingredient) => (
           <div key={ingredient} className="flex items-center space-x-2">
             <Checkbox
@@ -55,7 +33,12 @@ export default function IngredientsSelector({
                 handleIngredientChange(ingredient, !!checked)
               }
             />
-            <Label htmlFor={ingredient}>{ingredient}</Label>
+            <Label
+              htmlFor={ingredient}
+              className="cursor-pointer hover:text-muted-foreground hover:underline"
+            >
+              {ingredient}
+            </Label>
           </div>
         ))}
       </div>
