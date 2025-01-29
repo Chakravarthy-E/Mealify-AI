@@ -21,10 +21,10 @@ function PreferencesSelector({
   };
   return (
     <div className="space-y-2">
-      <h3 className="font-semibold">Dietary Preferences</h3>
+      <h3 className="font-semibold font-outfit">Dietary Preferences</h3>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {PREFERENCES.map((preference) => (
-          <div key={preference} className="flex space-x-3">
+          <div key={preference} className="flex space-x-3 font-liter">
             <Checkbox
               id={preference}
               checked={selectedPreferences.includes(preference)}

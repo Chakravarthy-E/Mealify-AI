@@ -1,9 +1,11 @@
 "use client";
 
+import React, { useState } from "react";
+import ReactMarkDown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import PreferencesSelector from "@/components/global/preferences-selector";
 import { Button } from "@/components/ui/button";
 import { useGenerateMealPlan } from "@/hooks/generate-meal-plan";
-import React, { useState } from "react";
 
 function MealPlan() {
   const [preferences, setPreferences] = useState<string[]>([]);
@@ -44,9 +46,9 @@ function MealPlan() {
 
       {error && <p style={{ color: "red" }}>{error.message}</p>}
       {data && (
-        <pre className="whitespace-pre-wrap text-gray-700 mt-2">
+        <ReactMarkDown remarkPlugins={[remarkGfm]}>
           {data.mealPlan}
-        </pre>
+        </ReactMarkDown>
       )}
     </div>
   );

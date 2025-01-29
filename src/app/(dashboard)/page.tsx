@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import ReactMarkDown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import IngredientsSelector from "@/components/global/ingredients-selector";
 import PreferencesSelector from "@/components/global/preferences-selector";
 import { Button } from "@/components/ui/button";
@@ -21,8 +23,8 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 space-y-6">
-      <h1 className="text-2xl font-bold text-center">
+    <div className="max-w-3xl mx-auto p-6 space-y-6 font-outfit">
+      <h1 className="text-2xl font-bold text-center font-outfit">
         Personalized Recipe Generator
       </h1>
 
@@ -35,7 +37,7 @@ export default function Home() {
         <Button
           onClick={handleGenerateRecipe}
           disabled={isPending}
-          className="px-6 py-3"
+          className="px-6 py-3 font-nunito"
         >
           {isPending ? "Loading..." : "Generate Recipe"}
         </Button>
@@ -47,9 +49,7 @@ export default function Home() {
 
       {error && <p style={{ color: "red" }}>{error.message}</p>}
       {data && (
-        <pre className="whitespace-pre-wrap text-gray-700 mt-2">
-          {data.recipe}
-        </pre>
+        <ReactMarkDown remarkPlugins={[remarkGfm]}>{data.recipe}</ReactMarkDown>
       )}
     </div>
   );

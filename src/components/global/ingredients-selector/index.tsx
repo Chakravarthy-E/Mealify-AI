@@ -22,10 +22,13 @@ export default function IngredientsSelector({
 
   return (
     <div className="space-y-4">
-      <h3 className="font-semibold">Select Ingredients</h3>
+      <h3 className="font-semibold font-outfit">Select Ingredients</h3>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {INGREDIENTS.map((ingredient) => (
-          <div key={ingredient} className="flex items-center space-x-2">
+          <div
+            key={ingredient}
+            className="flex items-center space-x-2 font-liter"
+          >
             <Checkbox
               id={ingredient}
               checked={selectedIngredients.includes(ingredient)}
