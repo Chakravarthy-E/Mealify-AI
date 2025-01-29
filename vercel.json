@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "profile",
+      "destination": "/profile"
+    },
+    {
+      "source": "meal-plan",
+      "destination": "/meal-plan"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
