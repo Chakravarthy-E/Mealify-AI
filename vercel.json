@@ -1,12 +1,20 @@
 {
   "rewrites": [
     {
-      "source": "profile",
+      "source": "/profile",
       "destination": "/profile"
     },
     {
-      "source": "meal-plan",
+      "source": "/meal-plan",
       "destination": "/meal-plan"
+    },
+    {
+      "source": "/sign-in",
+      "destination": "/sign-in"
+    },
+    {
+      "source": "/sign-up",
+      "destination": "/sign-up"
     },
     {
       "source": "/(.*)",

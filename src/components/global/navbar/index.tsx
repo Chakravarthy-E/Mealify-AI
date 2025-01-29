@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="bg-white shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center">
         <Link href="/" className="font-bold font-outfit text-2xl">
-          Recipe
+          Mealify
         </Link>
         <div>
           {!isLoaded ? (
